@@ -30,4 +30,4 @@ class Integration:
 
 
 test = Integration('x^3 + x', 0, 5,0.001)
-print(test.results())
+
