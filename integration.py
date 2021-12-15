@@ -9,7 +9,9 @@ class Integration:
         self.upper_limit = upper_limit
         self.time_step = time_step
         if self.time_step is None:
-            self.time_step = float(abs(self.upper_limit - self.lower_limit) / 100)
+            i = abs(self.upper_limit - self.lower_limit)
+            r = len(str(floor(i)))
+            self.time_step = (i/100**r)
 
     def return_func(self, x):
         copy = self.func
@@ -29,5 +31,5 @@ class Integration:
         return self.calculation(h=self.time_step) + (1 / 3) * (self.calculation(h=self.time_step) - self.calculation(h=2 * self.time_step))
 
 
-test = Integration('x^3 + x', 0, 5,0.001)
+
 
